@@ -1,0 +1,30 @@
+{
+	"dependencies": {
+		"@nestjs/common": "^11.0.1",
+		"@nestjs/core": "^11.0.1",
+		"@nestjs/platform-express": "^11.0.1",
+		"reflect-metadata": "^0.2.2",
+		"rxjs": "^7.8.1"
+	},
+	"devDependencies": {
+		"@nestjs/cli": "^11.0.0",
+		"@nestjs/schematics": "^11.0.0",
+		"@types/express": "^5.0.0",
+		"@types/node": "^22.10.7",
+		"ts-loader": "^9.5.4",
+		"typescript": "^5.7.3"
+	},
+	"name": "api",
+	"private": true,
+	"scripts": {
+		"build": "nest build",
+		"start:api-client": "nest start api-client",
+		"start:api-client:debug": "nest start api-client --debug --watch",
+		"start:api-client:dev": "nest start api-client --watch",
+		"start:api-client:prod": "node dist/apps/api-client/main",
+		"start:api-coach": "nest start api-coach",
+		"start:api-coach:debug": "nest start api-coach --debug --watch",
+		"start:api-coach:dev": "nest start api-coach --watch",
+		"start:api-coach:prod": "node dist/apps/api-coach/main"
+	}
+}

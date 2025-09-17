@@ -1,0 +1,55 @@
+services:
+  postgres:
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=athletepro
+      - POSTGRES_PASSWORD=athletepro
+      - POSTGRES_USER=superadmin
+    image: postgres:17-alpine
+    ports:
+      - 5432:5432
+    restart: always
+
+  api-client:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    command: ["npm", "run", "start:api-client:dev"]
+    container_name: api-client
+    develop:
+      watch:
+        - action: sync
+          path: ./api/apps/api-client
+          target: /usr/src/app/apps/api-client
+        - action: sync
+          path: ./api/libs
+          target: /usr/src/app/libs
+        - action: rebuild
+          path: ./api/package.json
+          target: /usr/src/app/package.json
+    ports:
+      - 3001:3001
+
+  api-coach:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    command: ["npm", "run", "start:api-coach:dev"]
+    container_name: api-coach
+    develop:
+      watch:
+        - action: sync
+          path: ./api/apps/api-coach
+          target: /usr/src/app/apps/api-coach
+        - action: sync
+          path: ./api/libs
+          target: /usr/src/app/libs
+        - action: rebuild
+          path: ./api/package.json
+          target: /usr/src/app/package.json
+    ports:
+      - 3002:3002
+
+networks:
+  default:
+    name: athletepro-network
