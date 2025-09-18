@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"outDir": "../../dist/libs/drizzle"
+	},
+	"exclude": ["node_modules", "dist"],
+	"extends": "../../tsconfig.json",
+	"include": ["src/**/*"]
+}

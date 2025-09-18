@@ -1,13 +1,19 @@
-import { Controller, Get } from "@nestjs/common";
-// biome-ignore lint/style/useImportType: Injection
-import { AuthService } from "@/auth";
+import { DRIZZLE_CLIENT } from "@devnetiq/drizzle";
+import { users } from "@devnetiq/schemas";
+import { Controller, Get, Inject } from "@nestjs/common";
+import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 
 @Controller()
 export class AppController {
-	public constructor(private readonly authService: AuthService) {}
+	public constructor(
+		@Inject(DRIZZLE_CLIENT)
+		private readonly db: NodePgDatabase,
+	) {}
 
 	@Get()
-	public get(): string {
-		return "Hello, DevnetiQ!";
+	public async get(): Promise<string[]> {
+		const rows = await this.db.select({ id: users.id }).from(users);
+
+		return rows.map(({ id }) => id);
 	}
 }

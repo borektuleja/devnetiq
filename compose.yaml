@@ -2,13 +2,15 @@ services:
   postgres:
     container_name: postgres
     environment:
-      - POSTGRES_DB=athletepro
-      - POSTGRES_PASSWORD=athletepro
-      - POSTGRES_USER=superadmin
+      - POSTGRES_DB=devnetiq
+      - POSTGRES_PASSWORD=devnetiq
+      - POSTGRES_USER=devnetiq
     image: postgres:17-alpine
     ports:
       - 5432:5432
     restart: always
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
 
   api-client:
     build:
@@ -16,6 +18,8 @@ services:
       dockerfile: Dockerfile
     command: ["npm", "run", "start:api-client:dev"]
     container_name: api-client
+    depends_on:
+      - postgres
     develop:
       watch:
         - action: sync
@@ -25,8 +29,19 @@ services:
           path: ./api/libs
           target: /usr/src/app/libs
         - action: rebuild
+          path: ./api/.env
+          target: /usr/src/app/.env
+        - action: rebuild
           path: ./api/package.json
           target: /usr/src/app/package.json
+        - action: sync
+          path: ./api/tsconfig.build.json
+          target: /usr/src/app/tsconfig.build.json
+        - action: sync
+          path: ./api/tsconfig.json
+          target: /usr/src/app/tsconfig.json
+    environment:
+      - DATABASE_HOST=postgres
     ports:
       - 3001:3001
 
@@ -36,6 +51,8 @@ services:
       dockerfile: Dockerfile
     command: ["npm", "run", "start:api-coach:dev"]
     container_name: api-coach
+    depends_on:
+      - postgres
     develop:
       watch:
         - action: sync
@@ -45,11 +62,25 @@ services:
           path: ./api/libs
           target: /usr/src/app/libs
         - action: rebuild
+          path: ./api/.env
+          target: /usr/src/app/.env
+        - action: rebuild
           path: ./api/package.json
           target: /usr/src/app/package.json
+        - action: sync
+          path: ./api/tsconfig.build.json
+          target: /usr/src/app/tsconfig.build.json
+        - action: sync
+          path: ./api/tsconfig.json
+          target: /usr/src/app/tsconfig.json
+    environment:
+      - DATABASE_HOST=postgres
     ports:
       - 3002:3002
 
 networks:
   default:
-    name: athletepro-network
+    name: devnetiq-network
+
+volumes:
+  postgres-volume:

@@ -15,8 +15,14 @@
 		"noImplicitAny": false,
 		"outDir": "./dist",
 		"paths": {
-			"@/auth": ["libs/auth/src"],
-			"@/auth/*": ["libs/auth/src/*"]
+			"@devnetiq/auth": ["libs/auth/src"],
+			"@devnetiq/auth/*": ["libs/auth/src/*"],
+			"@devnetiq/drizzle": ["libs/drizzle/src"],
+			"@devnetiq/drizzle/*": ["libs/drizzle/src/*"],
+			"@devnetiq/environment": ["libs/environment/src"],
+			"@devnetiq/environment/*": ["libs/environment/src/*"],
+			"@devnetiq/schemas": ["libs/schemas/src"],
+			"@devnetiq/schemas/*": ["libs/schemas/src/*"]
 		},
 		"removeComments": true,
 		"resolvePackageJsonExports": true,

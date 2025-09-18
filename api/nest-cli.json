@@ -34,6 +34,33 @@
 			"root": "libs/auth",
 			"sourceRoot": "libs/auth/src",
 			"type": "library"
+		},
+		"drizzle": {
+			"compilerOptions": {
+				"tsConfigPath": "libs/drizzle/tsconfig.lib.json"
+			},
+			"entryFile": "index",
+			"root": "libs/drizzle",
+			"sourceRoot": "libs/drizzle/src",
+			"type": "library"
+		},
+		"environment": {
+			"compilerOptions": {
+				"tsConfigPath": "libs/environment/tsconfig.lib.json"
+			},
+			"entryFile": "index",
+			"root": "libs/environment",
+			"sourceRoot": "libs/environment/src",
+			"type": "library"
+		},
+		"schemas": {
+			"compilerOptions": {
+				"tsConfigPath": "libs/schemas/tsconfig.lib.json"
+			},
+			"entryFile": "index",
+			"root": "libs/schemas",
+			"sourceRoot": "libs/schemas/src",
+			"type": "library"
 		}
 	},
 	"root": "apps/api-coach",
