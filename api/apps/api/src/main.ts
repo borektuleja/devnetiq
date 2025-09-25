@@ -8,7 +8,7 @@ async function bootstrap() {
 	const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
 	const configService = app.get(ConfigService<EnvironmentVariables, true>);
-	const port = configService.get("PORT_API_COACH", { infer: true });
+	const port = configService.get("PORT", { infer: true });
 
 	await app.listen(port);
 }

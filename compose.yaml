@@ -12,19 +12,19 @@ services:
     volumes:
       - postgres-volume:/var/lib/postgresql/data
 
-  api-client:
+  api:
     build:
       context: ./api
       dockerfile: Dockerfile
-    command: ["npm", "run", "start:api-client:dev"]
-    container_name: api-client
+    command: ["npm", "run", "start:dev"]
+    container_name: api
     depends_on:
       - postgres
     develop:
       watch:
         - action: sync
-          path: ./api/apps/api-client
-          target: /usr/src/app/apps/api-client
+          path: ./api/apps/api
+          target: /usr/src/app/apps/api
         - action: sync
           path: ./api/libs
           target: /usr/src/app/libs
@@ -43,40 +43,26 @@ services:
     environment:
       - DATABASE_HOST=postgres
     ports:
-      - 3001:3001
-
-  api-coach:
+      - 3333:3333
+  
+  web:
+    container_name: devnetiq-web
     build:
-      context: ./api
+      context: ./web
       dockerfile: Dockerfile
-    command: ["npm", "run", "start:api-coach:dev"]
-    container_name: api-coach
+    command: ["npm", "run", "dev"]
     depends_on:
-      - postgres
+      - api
     develop:
       watch:
         - action: sync
-          path: ./api/apps/api-coach
-          target: /usr/src/app/apps/api-coach
-        - action: sync
-          path: ./api/libs
-          target: /usr/src/app/libs
+          path: ./web
+          target: /usr/src/app
         - action: rebuild
-          path: ./api/.env
-          target: /usr/src/app/.env
-        - action: rebuild
-          path: ./api/package.json
-          target: /usr/src/app/package.json
-        - action: sync
-          path: ./api/tsconfig.build.json
-          target: /usr/src/app/tsconfig.build.json
-        - action: sync
-          path: ./api/tsconfig.json
-          target: /usr/src/app/tsconfig.json
-    environment:
-      - DATABASE_HOST=postgres
+          path: ./web/package.json
+          target: /usr/src/app/package.json     
     ports:
-      - 3002:3002
+      - 4444:4444   
 
 networks:
   default:

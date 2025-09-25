@@ -3,27 +3,18 @@
 	"collection": "@nestjs/schematics",
 	"compilerOptions": {
 		"deleteOutDir": true,
-		"tsConfigPath": "apps/api-coach/tsconfig.app.json",
+		"tsConfigPath": "apps/api/tsconfig.app.json",
 		"webpack": true
 	},
 	"monorepo": true,
 	"projects": {
-		"api-client": {
+		"api": {
 			"compilerOptions": {
-				"tsConfigPath": "apps/api-client/tsconfig.app.json"
+				"tsConfigPath": "apps/api/tsconfig.app.json"
 			},
 			"entryFile": "main",
-			"root": "apps/api-client",
-			"sourceRoot": "apps/api-client/src",
-			"type": "application"
-		},
-		"api-coach": {
-			"compilerOptions": {
-				"tsConfigPath": "apps/api-coach/tsconfig.app.json"
-			},
-			"entryFile": "main",
-			"root": "apps/api-coach",
-			"sourceRoot": "apps/api-coach/src",
+			"root": "apps/api",
+			"sourceRoot": "apps/api/src",
 			"type": "application"
 		},
 		"auth": {
@@ -63,6 +54,6 @@
 			"type": "library"
 		}
 	},
-	"root": "apps/api-coach",
-	"sourceRoot": "apps/api-coach/src"
+	"root": "apps/api",
+	"sourceRoot": "apps/api/src"
 }

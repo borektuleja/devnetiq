@@ -24,13 +24,9 @@
 	"private": true,
 	"scripts": {
 		"build": "nest build",
-		"start:api-client": "nest start api-client",
-		"start:api-client:debug": "nest start api-client --debug --watch",
-		"start:api-client:dev": "nest start api-client --watch",
-		"start:api-client:prod": "node dist/apps/api-client/main",
-		"start:api-coach": "nest start api-coach",
-		"start:api-coach:debug": "nest start api-coach --debug --watch",
-		"start:api-coach:dev": "nest start api-coach --watch",
-		"start:api-coach:prod": "node dist/apps/api-coach/main"
+		"start": "nest start api",
+		"start:debug": "nest start api --debug --watch",
+		"start:dev": "nest start api --watch",
+		"start:prod": "node dist/apps/api/main"
 	}
 }

@@ -2,5 +2,5 @@
 **/.dockerignore
 **/Dockerfile
 **/package-lock.json
-**/dist
+**/.next
 **/node_modules

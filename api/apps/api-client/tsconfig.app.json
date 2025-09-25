@@ -1,9 +1,0 @@
-{
-	"compilerOptions": {
-		"declaration": false,
-		"outDir": "../../dist/apps/api-client"
-	},
-	"exclude": ["node_modules", "dist"],
-	"extends": "../../tsconfig.json",
-	"include": ["src/**/*"]
-}
