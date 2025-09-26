@@ -39,54 +39,26 @@ const textFieldInputClasses = cva([
 	"placeholder:text-gray-500",
 ]);
 
-const textFieldDescriptionClasses = cva([
-	"text-gray-400",
-	"text-sm/6",
-	"font-normal",
-]);
+const textFieldDescriptionClasses = cva(["text-gray-400", "text-sm/6", "font-normal"]);
 
 const textFieldErrorClasses = cva(["text-red-400", "text-sm/6", "font-normal"]);
 
-export function TextField({
-	ref,
-	...props
-}: PropsWithout<typeof RATextField, "className">) {
+export function TextField({ ref, ...props }: PropsWithout<typeof RATextField, "className">) {
 	return <RATextField className={textFieldClasses()} ref={ref} {...props} />;
 }
 
-export function TextFieldLabel({
-	ref,
-	...props
-}: PropsWithout<typeof RALabel, "className">) {
+export function TextFieldLabel({ ref, ...props }: PropsWithout<typeof RALabel, "className">) {
 	return <RALabel className={textFieldLabelClasses()} ref={ref} {...props} />;
 }
 
-export function TextFieldInput({
-	ref,
-	...props
-}: PropsWithout<typeof RAInput, "className">) {
+export function TextFieldInput({ ref, ...props }: PropsWithout<typeof RAInput, "className">) {
 	return <RAInput className={textFieldInputClasses()} ref={ref} {...props} />;
 }
 
-export function TextFieldDescription({
-	ref,
-	...props
-}: PropsWithout<typeof RAText, "className" | "slot">) {
-	return (
-		<RAText
-			className={textFieldDescriptionClasses()}
-			ref={ref}
-			slot="description"
-			{...props}
-		/>
-	);
+export function TextFieldDescription({ ref, ...props }: PropsWithout<typeof RAText, "className" | "slot">) {
+	return <RAText className={textFieldDescriptionClasses()} ref={ref} slot="description" {...props} />;
 }
 
-export function TextFieldError({
-	ref,
-	...props
-}: PropsWithout<typeof RAFieldError, "className">) {
-	return (
-		<RAFieldError className={textFieldErrorClasses()} ref={ref} {...props} />
-	);
+export function TextFieldError({ ref, ...props }: PropsWithout<typeof RAFieldError, "className">) {
+	return <RAFieldError className={textFieldErrorClasses()} ref={ref} {...props} />;
 }

@@ -17,15 +17,6 @@
 			"sourceRoot": "apps/api/src",
 			"type": "application"
 		},
-		"auth": {
-			"compilerOptions": {
-				"tsConfigPath": "libs/auth/tsconfig.lib.json"
-			},
-			"entryFile": "index",
-			"root": "libs/auth",
-			"sourceRoot": "libs/auth/src",
-			"type": "library"
-		},
 		"drizzle": {
 			"compilerOptions": {
 				"tsConfigPath": "libs/drizzle/tsconfig.lib.json"
@@ -42,6 +33,15 @@
 			"entryFile": "index",
 			"root": "libs/environment",
 			"sourceRoot": "libs/environment/src",
+			"type": "library"
+		},
+		"pusher": {
+			"compilerOptions": {
+				"tsConfigPath": "libs/pusher/tsconfig.lib.json"
+			},
+			"entryFile": "index",
+			"root": "libs/pusher",
+			"sourceRoot": "libs/pusher/src",
 			"type": "library"
 		},
 		"schemas": {

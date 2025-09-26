@@ -11,10 +11,11 @@
 		"enabled": true
 	},
 	"files": {
-		"includes": ["**", "!**/node_modules", "!**/dist"]
+		"includes": ["**", "!**/package-lock.json", "!**/.next", "!**/dist", "!**/node_modules"]
 	},
 	"formatter": {
-		"enabled": true
+		"enabled": true,
+		"lineWidth": 120
 	},
 	"javascript": {
 		"parser": {

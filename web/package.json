@@ -2,6 +2,7 @@
 	"dependencies": {
 		"class-variance-authority": "^0.7.1",
 		"next": "^15.5.4",
+		"pusher-js": "^8.4.0",
 		"react": "^19.1.1",
 		"react-aria-components": "^1.12.2",
 		"react-dom": "^19.1.1"

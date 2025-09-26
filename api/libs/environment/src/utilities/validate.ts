@@ -1,12 +1,7 @@
 import z, { ZodError } from "zod";
-import {
-	type EnvironmentVariables,
-	environmentVariablesSchema,
-} from "../schemas/environment-variables.schema";
+import { type EnvironmentVariables, environmentVariablesSchema } from "../schemas/environment-variables.schema";
 
-export function validate(
-	environment: Record<string, unknown>,
-): EnvironmentVariables {
+export function validate(environment: Record<string, unknown>): EnvironmentVariables {
 	try {
 		return environmentVariablesSchema.parse(environment);
 	} catch (error) {

@@ -46,11 +46,11 @@ services:
       - 3333:3333
   
   web:
-    container_name: devnetiq-web
     build:
       context: ./web
       dockerfile: Dockerfile
     command: ["npm", "run", "dev"]
+    container_name: devnetiq-web
     depends_on:
       - api
     develop:

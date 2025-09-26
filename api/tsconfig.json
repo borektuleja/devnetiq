@@ -15,12 +15,12 @@
 		"noImplicitAny": false,
 		"outDir": "./dist",
 		"paths": {
-			"@devnetiq/auth": ["libs/auth/src"],
-			"@devnetiq/auth/*": ["libs/auth/src/*"],
 			"@devnetiq/drizzle": ["libs/drizzle/src"],
 			"@devnetiq/drizzle/*": ["libs/drizzle/src/*"],
 			"@devnetiq/environment": ["libs/environment/src"],
 			"@devnetiq/environment/*": ["libs/environment/src/*"],
+			"@devnetiq/pusher": ["libs/pusher/src"],
+			"@devnetiq/pusher/*": ["libs/pusher/src/*"],
 			"@devnetiq/schemas": ["libs/schemas/src"],
 			"@devnetiq/schemas/*": ["libs/schemas/src/*"]
 		},
