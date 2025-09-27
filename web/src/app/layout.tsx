@@ -14,9 +14,11 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
+			{/*
 			<head>
 				<script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" />
 			</head>
+			*/}
 			<body className={`${googleSansCode.className} antialiased`}>{children}</body>
 		</html>
 	);

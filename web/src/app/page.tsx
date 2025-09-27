@@ -1,6 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { LuActivity } from "react-icons/lu";
+import { Button } from "@/components/ui/button";
+import {
+	Select,
+	SelectContent,
+	SelectDescription,
+	SelectError,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+} from "@/components/ui/select";
 import {
 	TextField,
 	TextFieldDescription,
@@ -34,6 +45,19 @@ export default function Page() {
 					<TextFieldInput placeholder="Zadejte jméno a příjmení" />
 					<TextFieldError />
 				</TextField>
+				<Select placeholder="Zvolte kategorii">
+					<SelectLabel>Kategorie</SelectLabel>
+					<SelectTrigger />
+					<SelectDescription>Vyberte kategorii ve které se závodu zůčastníte.</SelectDescription>
+					<SelectError />
+					<SelectContent>
+						<SelectItem>Teen Boys</SelectItem>
+						<SelectItem>Teen Girls</SelectItem>
+					</SelectContent>
+				</Select>
+				<Button icon={LuActivity} isPending>
+					Uložit
+				</Button>
 			</form>
 		</section>
 	);

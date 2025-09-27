@@ -35,7 +35,6 @@ const textFieldInputClasses = cva([
 	"data-disabled:text-gray-500",
 	"data-disabled:bg-white/10",
 	"data-disabled:cursor-not-allowed",
-	"data-invalid:border-red-500/50",
 	"placeholder:text-gray-500",
 ]);
 
@@ -51,7 +50,7 @@ export function TextFieldLabel({ ref, ...props }: PropsWithout<typeof RALabel, "
 	return <RALabel className={textFieldLabelClasses()} ref={ref} {...props} />;
 }
 
-export function TextFieldInput({ ref, ...props }: PropsWithout<typeof RAInput, "className">) {
+export function TextFieldInput({ ref, ...props }: PropsWithout<typeof RAInput, "children" | "className">) {
 	return <RAInput className={textFieldInputClasses()} ref={ref} {...props} />;
 }
 
